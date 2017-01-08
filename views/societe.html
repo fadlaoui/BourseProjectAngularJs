@@ -1,0 +1,24 @@
+<div class="row featured2">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="cform" id="">
+            <div id="sendmessage">
+                Ajotuer une Societe
+            </div>
+            <div id="errormessage"></div>
+            <form >
+                <div class="form-group">
+                    <label for="name">Code Societe</label>
+                    <input ng-model="societe.idSociete" type="text" name="name" class="form-control" id="code" placeholder="Code Societe " data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Nom Societe</label>
+                    <input  ng-model="societe.nameSociete" type="text" name="name" class="form-control" id="name" placeholder="Nom Societe" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                </div>
+
+                <button type="submit"  ng-click="ajouterSociete()" class="btn btn-theme pull-left">Ajouter Societe</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- ./span12 -->
+</div>

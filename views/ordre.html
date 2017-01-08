@@ -1,0 +1,44 @@
+<div class="row featured3">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="cform" id="">
+            <form  id="myForm"  method="post" role="form" class="contactForm">
+                <div class="row">
+                    <div class="col-sm-6">
+                    <label >Type Role</label>
+                    </div>
+                    <div id="coco">
+                     <input type="radio" name="name"    value="AC"  style="margin-right: 10px"/>  Achat
+                     <input type="radio" name="name"   value="VE" style="margin-left: 10px"/>   Vente
+                    </div>
+                    </div>
+                <br>
+                <div class="row">
+                    <div class="form-group col-sm-3"> <label > Nom Societe</label></div>
+                     <div class="form-group col-sm-6">
+
+                         <select style="color: #000;" id="selectSociete"  ng-model="SocieteId" ng-change="update()">
+                             <option ng-value="soc.idSociete" ng-repeat="soc in societes">{{soc.nameSociete}}</option>
+                         </select>
+                     </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3"> <label for="number">Nombre Action</label></div>
+                    <div class="form-group col-sm-6">
+                        <input ng-model="ordre.numberAction" type="number" name="number" class="form-control" id="number" placeholder="Nombre Action" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3"> <label for="prix">Prix d'action</label></div>
+                    <div class="form-group col-sm-6">
+                        <input ng-model="ordre.prix" type="number" name="prix" class="form-control" id="prix" placeholder="Prix d'action" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    </div>
+                </div>
+
+                <button type="submit" ng-click="saveOrder()" class="btn btn-theme pull-left">Ajouter Order</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- ./span12 -->
+
+</div>

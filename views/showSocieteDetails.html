@@ -1,0 +1,87 @@
+
+<section class="featured1">
+    <div class="container">
+        <div class="row mar-bot40">
+            <div class="">
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Graph</h3>
+                                </div>
+                                <div class="panel-body align-center">
+                                    <div id="piechart_3d" style="width: 500px; height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Moynnes Vents/Achats</h3>
+                                        </div>
+                                        <div class="panel-body" style="color: #000;">
+                                            <div class="col-sm-6">  Moyenne Vente : <strong>{{moyenneVente | currency :"" | addDhsSign}}</strong></div>
+                                            <div class="col-sm-6"> Moyenne Achat : <strong>{{moyenneAchat | currency :"" | addDhsSign}}</strong></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Total Vents/Achats</h3>
+                                        </div>
+                                        <div class="panel-body" style="color: #000;">
+                                            <div class="row">
+                                                <div class="col-sm-6">  Total Vente : <strong>{{totalVente | currency :"" | addDhsSign}}</strong></div>
+                                                <div class="col-sm-6"> Total Achat : <strong>{{totalAchat | currency :"" | addDhsSign}}</strong></div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="align-center">
+                    <table class="table align-center ">
+                        <thead class="thead-inverse">
+                        <tr class="align-center">
+                            <th class="align-center">#</th>
+                            <th class="align-center">Type</th>
+                            <th class="align-center">Date</th>
+                            <th class="align-center">Nombre d'action</th>
+                            <th class="align-center">Prix</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="ord in ordres | orderBy : 'date' ">
+                            <td> {{$index+1}}</td>
+                            <td> {{ord.discriminatorValue}}</td>
+                            <td> <strong>{{ord.date | date : 'yyyy-MM-dd  hh:mm:ss'}}</strong> </td>
+                            <td> {{ord.nbrAction}}</td>
+                            <td> {{ord.prix | currency :"" | addDhsSign}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="..." class="text-center">
+
+                    <ul class="pagination" ng-if="TotalPage != 0">
+                        <li ng-class="{'disabled':page==0}"><a href=""  class="ignore-click"  aria-label="Previous" ng-click="goToPage(0)"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li ng-class="{'active':n==page+1}" ng-repeat="n in range(1,TotalPage)" ng-click="goToPage(n-1)"><a  href=""  class="ignore-click" >{{n}} <span class="sr-only">(current)</span></a></li>
+                        <li ng-class="{'disabled':page==TotalPage-1}"><a href="" aria-label="Next" class="ignore-click" ng-click="goToPage(TotalPage-1)"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
